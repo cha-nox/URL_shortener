@@ -3,7 +3,7 @@ from app.models.link import Link
 from app.models.user import User
 from app.user import user_bp
 from app.utils import login_required
-from config import Config
+from app.config import Config
 from flask import render_template, flash, redirect, url_for, request, session
 from os import remove
 from os.path import join, isfile
@@ -60,7 +60,7 @@ def profile():
     )
 
 @user_bp.route('/password', methods = ['POST', 'GET'])
-@limiter.limit(Config.PASSWORD_LIMITS)
+@limiter.limit(Config.DEFAULT_LIMITS)
 @login_required
 def password():
     # Register form handling

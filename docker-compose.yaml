@@ -1,0 +1,48 @@
+services:
+  easy_link:
+    image: easy_link:latest
+    container_name: easy_link
+    ports:
+      - 5000:5000
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URI=postgresql://DB_USER:DB_PASSWORD@easy_link_data:5432/easy_link
+      - CACHE_TYPE=memcached
+      - CACHE_MEMCACHED_SERVERS=easy_link_cache:11211
+      - CACHE_STORAGE_URI=memcached://easy_link_cache:11211
+      - MAIL_PASSWORD=
+      - SECRET_KEY=
+    depends_on:
+      easy_link_data:
+        condition: service_healthy
+      easy_link_cache:
+        condition: service_started
+    restart: 'unless-stopped'
+
+  easy_link_data:
+    volumes:
+      - easy_link_data:/var/lib/postgresql/data
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: adminer
+      POSTGRES_DB: easy_link
+    restart: 'unless-stopped'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  easy_link_cache:
+    volumes:
+      - easy_link_cache:/data
+    image: memcached:latest
+    container_name: memcached
+    command: ["memcached"]
+    restart: 'unless-stopped'
+
+volumes:
+  easy_link_data:
+  easy_link_cache:

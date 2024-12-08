@@ -20,7 +20,7 @@ class Config :
     SECRET_KEY : str = getenv('SECRET_KEY')\
         or urandom(32).hex()
     PERMANENT_SESSION_LIFETIME : timedelta = timedelta(minutes = 10)
-    PASSWORD_LIMITS : str = getenv('PASSWORD_LIMITS')
+    DEFAULT_LIMITS : str = getenv('DEFAULT_LIMITS')
 
     # Database configuration
     SQLALCHEMY_DATABASE_URI : str = getenv('DATABASE_URI')

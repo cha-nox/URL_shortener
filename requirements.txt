@@ -1,0 +1,12 @@
+flask
+wheel
+python-dotenv
+flask-sqlalchemy
+psycopg2-binary
+flask-bcrypt
+validators
+Flask-WTF
+pyjwt
+Flask-Mail
+Flask-Limiter
+Flask-Limiter[memcached]

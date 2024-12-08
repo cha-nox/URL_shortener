@@ -1,5 +1,5 @@
 from app.extensions import mailer
-from config import Config
+from app.config import Config
 from datetime import datetime, timedelta, timezone
 from flask import flash, redirect, url_for, render_template, session
 from flask_mail import Message

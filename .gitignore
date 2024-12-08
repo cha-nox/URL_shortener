@@ -1,0 +1,20 @@
+# IDE local config files
+.vscode
+.idea
+
+# Local caches
+__pycache__
+
+# Local development files
+.env
+venv/
+docs/
+*old*
+
+# Local tests files
+*test*
+*copy*
+.db_initialised
+
+# Automatically generated files
+app/static/uploads/

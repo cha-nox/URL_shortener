@@ -1,5 +1,5 @@
 from app.extensions import db
-from config import Config
+from app.config import Config
 from random import choice
 from sqlalchemy.sql import func
 from validators import url

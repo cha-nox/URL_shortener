@@ -2,7 +2,7 @@ from app.extensions import db
 from app.main import main_bp
 from app.models.link import Link
 from app.models.user import User
-from config import Config
+from app.config import Config
 from datetime import datetime, timezone
 from os import makedirs
 from os.path import join, isdir, isfile
