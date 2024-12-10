@@ -20,7 +20,7 @@ COPY . .
 RUN rm requirements.txt
 
 # Exposing the port required by the application
-EXPOSE 5000
+EXPOSE 5001
 
 # Making the init script executable
 RUN chmod +x init.sh

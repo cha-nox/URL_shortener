@@ -11,4 +11,4 @@ else
 fi
 
 # Running the app
-python3 -m flask run --host=0.0.0.0
+gunicorn --bind 0.0.0.0:5001 "app:create_app()"

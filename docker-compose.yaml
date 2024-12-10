@@ -3,15 +3,16 @@ services:
     image: easy_link:latest
     container_name: easy_link
     ports:
-      - 5000:5000
+      - 5001:5001
     environment:
-      - FLASK_ENV=development
+      - FLASK_ENV=production
       - DATABASE_URI=postgresql://DB_USER:DB_PASSWORD@easy_link_data:5432/easy_link
       - CACHE_TYPE=memcached
       - CACHE_MEMCACHED_SERVERS=easy_link_cache:11211
       - CACHE_STORAGE_URI=memcached://easy_link_cache:11211
       - MAIL_PASSWORD=
       - SECRET_KEY=
+      - DOMAIN_NAME=localhost
     depends_on:
       easy_link_data:
         condition: service_healthy

@@ -10,3 +10,4 @@ pyjwt
 Flask-Mail
 Flask-Limiter
 Flask-Limiter[memcached]
+gunicorn
