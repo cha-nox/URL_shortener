@@ -19,8 +19,8 @@ services:
     image: postgres:latest
     container_name: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: adminer
+      POSTGRES_USER: 
+      POSTGRES_PASSWORD: 
       POSTGRES_DB: easy_link
     restart: 'unless-stopped'
     healthcheck:
